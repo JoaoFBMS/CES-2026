@@ -676,7 +676,7 @@
             </div>
             
             <div class="text-sm text-gray-400">
-                <p>&copy; 2024 BMS Consultoria Tributária. Todos os direitos reservados.</p>
+                <p>&copy; 2025 BMS Consultoria Tributária. Todos os direitos reservados.</p>
                 <p class="mt-2">CES® é uma marca registrada da Consumer Technology Association (CTA)®</p>
             </div>
         </div>
@@ -695,7 +695,11 @@
         (function(){
             var phone = '5521981121255';
             var defaultMsg = 'Olá! Quero saber mais sobre a imersão CES Las Vegas 2026 com Tony Ventura.';
-            var link = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(defaultMsg);
+            var isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+            var base = isMobile 
+                ? ('https://wa.me/' + phone + '?text=') 
+                : ('https://api.whatsapp.com/send?phone=' + phone + '&text=');
+            var link = base + encodeURIComponent(defaultMsg) + '&app_absent=0';
 
             var floating = document.getElementById('floating-whatsapp');
             if (floating) {
@@ -707,6 +711,8 @@
             var footer = document.getElementById('footer-whatsapp');
             if (footer) {
                 footer.setAttribute('href', link);
+                footer.setAttribute('target', '_blank');
+                footer.setAttribute('rel', 'noopener');
             }
         })();
     </script>
