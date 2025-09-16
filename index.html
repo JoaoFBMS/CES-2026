@@ -670,7 +670,7 @@
                 <a href="https://bmsprojetos.com/" target="_blank" class="text-gray-400 hover:text-white text-2xl">
                     <i class="fas fa-globe"></i>
                 </a>
-                <a href="https://wa.me/5521981121255?text=%C3%81%20ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20imers%C3%A3o%20CES%20Las%20Vegas%202026%20com%20Tony%20Ventura." target="_blank" rel="noopener" class="text-green-400 hover:text-green-300 text-2xl">
+                <a id="footer-whatsapp" href="#" target="_blank" rel="noopener" class="text-green-400 hover:text-green-300 text-2xl">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
@@ -695,12 +695,18 @@
         (function(){
             var phone = '5521981121255';
             var defaultMsg = 'Olá! Quero saber mais sobre a imersão CES Las Vegas 2026 com Tony Ventura.';
-            var link = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(defaultMsg);
-            var anchor = document.getElementById('floating-whatsapp');
-            if (anchor) {
-                anchor.setAttribute('href', link);
-                anchor.setAttribute('target', '_blank');
-                anchor.setAttribute('rel', 'noopener');
+            var link = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(defaultMsg);
+
+            var floating = document.getElementById('floating-whatsapp');
+            if (floating) {
+                floating.setAttribute('href', link);
+                floating.setAttribute('target', '_blank');
+                floating.setAttribute('rel', 'noopener');
+            }
+
+            var footer = document.getElementById('footer-whatsapp');
+            if (footer) {
+                footer.setAttribute('href', link);
             }
         })();
     </script>
